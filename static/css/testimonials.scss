@@ -1,0 +1,86 @@
+.testimonials {
+  height: 584px;
+  padding-top: 120px;
+  position: relative;
+  background: url("../images/background/home1.webp") center/cover no-repeat fixed;
+  .subtitle {
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+  .desc {
+    color: #fff;
+  }
+  .stars img {
+    width: 12px;
+  }
+  .testimonialsSwiper {
+    height: 374px;
+  }
+  &:before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .3);
+  }
+  &__content {
+    padding-left: 22%;
+  }
+  &__title {
+    font-size: 32px;
+    margin-bottom: 10px;
+    color: #fff;
+  }
+  &__line {
+    height: 1px;
+    width: 60px;
+    border-top: 1px solid rgba(255,255,255,0.2);
+    margin-bottom: 10px;
+  }
+  &-pagination {
+    display: flex;
+    position: absolute;
+    left: 33% !important;
+    bottom: 50px !important;
+  }
+  &__card {
+    position: relative;
+    width: 610px;
+    &-comment {
+      display: flex;
+      column-gap: 15px;
+    }
+    &-photo {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+    }
+    &-name {
+      margin-bottom: 8px;
+      font-size: 15px;
+      font-family: $condensed;
+      color: #fff;
+      line-height: 1em;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+    }
+    &-review {
+      font-size: 12px;
+      color: #fff;
+      line-height: 1em;
+    }
+    &-message {
+      position: absolute;
+      right: 20px;
+      top: 90px;
+      width: 70px;
+      margin: 0 auto 30px;
+      opacity: .1;
+    }
+  }
+}

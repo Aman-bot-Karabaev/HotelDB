@@ -1,0 +1,29 @@
+.facilties {
+  padding: 120px 0;
+  &__row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+  &__card {
+    width: calc(33.33333% - 20px);
+    background: transparent;
+    padding: 30px 20px;
+    transition: .5s;
+    border: 1px solid #2b2b2b;
+    &-icon {
+      margin-bottom: 20px;
+    }
+    &-title {
+      font-size: 21px;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+    &-subtitle {
+      color: #999;
+    }
+    &-icon {
+      width: 45px;
+    }
+  }
+}

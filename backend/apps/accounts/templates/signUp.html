@@ -1,0 +1,70 @@
+{% extends 'base_auth.html' %}
+{% load static %}
+{% block content %}
+<main>
+    <section class="head">
+        <div class="container">
+            <p class="subtitle subtitle-white">LUXURY HOTEL</p>
+            <h2 class="head__title">Sign Up</h2>
+        </div>
+    </section>
+    <section class="login">
+        <div class="container">
+            <h3 class="title">Create your account</h3>
+            <form class="login__form" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {% if form.errors %}
+                    {% for field in form %}
+                        {% for error in field.errors %} 
+                            <div class="alert alert-danger">
+                                <strong>{{ error|escape }}</strong>
+                                </div>
+                            {% endfor %}
+                        {% endfor %}
+                    {% endif %}
+                <label class="login__field">
+                    {{ form.username }}
+                </label>
+
+                <label class="login__field login__date">
+                    <span class="login__avatar">Avatar</span>
+                    {{ form.avatar }}
+                </label>
+
+                <label class="login__field">
+                    {{ form.first_name }}
+                </label>
+
+                <label class="login__field">
+                    {{ form.last_name }}
+                </label>
+
+                <label class="login__field">
+                    {{ form.phone }}
+                </label>
+
+                <label class="login__field">
+                    {{ form.email }}
+                </label>
+
+                <label class="login__field">
+                    {{ form.password1 }}
+                </label>
+
+                <label class="login__field">
+                    {{ form.password2 }}
+                </label>
+
+                <div class="login__links">
+                    <a href="">
+                        <button class="btn-brown" type="submit">Sign Up</button>
+                    </a>
+
+                    <p class="desc">Already have an account?<a class="login__link" href="{% url 'sign_in' %}"> Login</a></p>
+                </div>
+            </form>
+        </div>
+    </section>
+</main>
+
+{% endblock %}

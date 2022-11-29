@@ -1,0 +1,24 @@
+.experience {
+  padding: 120px 0;
+  &__content {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  &__text {
+    width: 50%;
+  }
+  &__images {
+
+  }
+  &__img {
+    width: 208px;
+    &:first-child {
+      margin-top: 90px;
+    }
+    &:last-child {
+      margin: 0 0 90px 30px;
+      //margin-bottom: 90px;
+    }
+  }
+}

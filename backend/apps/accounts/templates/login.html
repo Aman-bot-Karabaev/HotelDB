@@ -1,0 +1,35 @@
+{% extends 'base_auth.html' %}
+{% load static %}
+{% block content %}
+<main>
+    <section class="head">
+        <div class="container">
+            <p class="subtitle subtitle-white">LUXURY HOTEL</p>
+            <h2 class="head__title">Login</h2>
+        </div>
+    </section>
+    <section class="login">
+        <div class="container">
+            <h3 class="title">Login to your account</h3>
+            <form class="login__form form" method="post">
+                {% csrf_token %}
+                <label class="login__field">
+                    {{ form.username }}
+                </label>
+
+                <label class="login__field">
+                    {{ form.password }}
+                </label>
+
+                <a href="">
+                    <button class="btn-brown" type="submit">Login</button>
+                </a>
+
+                <p class="desc">Don't you have an account yet? <a class="login__link" href="{% url 'register' %}">Sign Up</a></p>
+            </form>
+        </div>
+    </section>
+</main>
+
+
+{% endblock %}

@@ -1,0 +1,246 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<main>
+    <section class="head">
+        <div class="container">
+            <div class="stars">
+                <img src="{% static 'images/all/star.png' %}" alt="Star">
+                <img src="{% static 'images/all/star.png' %}" alt="Star">
+                <img src="{% static 'images/all/star.png' %}" alt="Star">
+                <img src="{% static 'images/all/star.png' %}" alt="Star">
+                <img src="{% static 'images/all/star.png' %}" alt="Star">
+            </div>
+            <p class="subtitle subtitle-white">The Cappa Luxury Hotel</p>
+            <h2 class="head__title">Rooms & Suites</h2>
+        </div>
+    </section>
+    <section class="prices">
+        <div class="container">
+            <div class="prices__row">
+                {% for object in object_list %}
+                <div class="prices__card wow fadeInUp">
+                    <div class="prices__card-img">
+                        <img src="{{object.picture.url}}" alt="Room">
+                    </div>
+                    <div class="prices__card-text">
+                        <h6 class="prices__card-price">
+                            {{object.price}} $
+                            <span class="prices__card-night">/ Night</span>
+                        </h6>
+                        <h5 class="prices__card-title">{{object.category.name}}</h5>
+                        <p class="desc">{{object.info}}</p>
+                        <ul class="prices__card-info">
+                            <li class="prices__card-item">
+                                <img class="prices__card-icon" src="{% static 'images/icons/persons.svg' %}" alt="persons">
+                                {{object.persons}}
+                            </li>
+                            <li class="prices__card-item">
+                                <img class="prices__card-icon" src="{% static 'images/icons/bed.svg' %}" alt="persons">
+                                Twin Bed
+                            </li>
+                            <li class="prices__card-item">
+                                <img class="prices__card-icon" src="{% static 'images/icons/time.svg' %}" alt="persons">
+                                200 sqft
+                            </li>
+                            <li class="prices__card-item">
+                                <img class="prices__card-icon" src="{% static 'images/icons/wifi.svg' %}" alt="persons">
+                                Free Wifi
+                            </li>
+                            <li class="prices__card-item">
+                                <img class="prices__card-icon" src="{% static 'images/icons/breakfast.svg' %}" alt="persons">
+                                Breakfast
+                            </li>
+                            <li class="prices__card-item">
+                                <img class="prices__card-icon" src="{% static 'images/icons/pool.svg' %}" alt="persons">
+                                S. Pool
+                            </li>
+                        </ul>
+                        <div class="prices__card-links">
+                            <a class="prices__card-link" href="">
+                                Details
+                                <span class="rooms__card-arrow">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                             stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                             stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5"
+                                                                                                               y1="12"
+                                                                                                               x2="19"
+                                                                                                               y2="12"
+                                                                                                               id="id_103"
+                                                                                                               style="stroke: #999999;"></line><polyline
+                                                points="12 5 19 12 12 19" id="id_104"
+                                                style="stroke: #999999;"></polyline></svg>
+                                </span>
+                            </a>
+                            <a href="{% url 'booking' booking_pk object.id %}">
+                            <button class="btn-brown btn-brown_small">Book Now</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <section style="background: #1e1e1e" class="service">
+        <div class="container">
+            <div class="service__content">
+                <div class="service__text">
+                    <p class="subtitle">
+                        Best Prices
+                    </p>
+                    <h3 class="title">
+                        Extra Services
+                    </h3>
+                    <p class="desc">
+                        The best prices for your relaxing vacation. The <br> utanislen quam nestibulum ac quame odion
+                        <br> elementum sceisue the aucan.
+                        <br>
+                        <br>
+                        Orci varius natoque penatibus et magnis <br> disney parturient monte nascete ridiculus mus <br>
+                        nellen etesque habitant morbine.
+                    </p>
+                    <div class="contact">
+                        <img class="contact__img" src="{% static 'images/all/call.png' %}" alt="Call">
+                        <div class="contact__text">
+                            <p class="desc desc-number">For information</p>
+                            <a href="tel: 855 100 4444" class="contact__number">855 100 4444</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper serviceSwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="service__card">
+                                <img src="{% static 'images/service/cardOne.jpg' %}" alt="Room cleaning"
+                                     class="service__card-img">
+                                <div class="service__card-text">
+                                    <h4 class="service__card-title">
+                                        Room cleaning
+                                    </h4>
+                                    <p class="service__card-price">
+                                        $50<span class="service__card-day">/ month</span>
+                                    </p>
+                                    <ul class="service__card-list">
+                                        <li class="service__card-item">
+                                            <img class="service__card-icon" src="{% static 'images/service/done.svg' %}"
+                                                 alt="Done">
+                                            Hotel ut nisan the duru
+                                        </li>
+                                        <li class="service__card-item">
+                                            <img class="service__card-icon" src="{% static 'images/service/done.svg' %}"
+                                                 alt="Done">
+                                            Orci miss natoque vasa ince
+                                        </li>
+                                        <li class="service__card-item">
+                                            <img class="service__card-icon" src="{% static 'images/service/cross.svg' %}"
+                                                 alt="Cross">
+                                            Clean sorem ipsum morbin
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="service__card">
+                                <img src="{% static 'images/service/cardTwo.jpg' %}" alt="Drinks included"
+                                     class="service__card-img">
+                                <div class="service__card-text">
+                                    <h4 class="service__card-title">
+                                        Drinks included
+                                    </h4>
+                                    <p class="service__card-price">
+                                        $30<span class="service__card-day">/ daily</span>
+                                    </p>
+                                    <ul class="service__card-list">
+                                        <li class="service__card-item">
+                                            <img class="service__card-icon" src="{% static 'images/service/done.svg' %}"
+                                                 alt="Done">
+                                            Hotel ut nisan the duru
+                                        </li>
+                                        <li class="service__card-item">
+                                            <img class="service__card-icon" src="{% static 'images/service/done.svg' %}"
+                                                 alt="Done">
+                                            Orci miss natoque vasa ince
+                                        </li>
+                                        <li class="service__card-item">
+                                            <img class="service__card-icon" src="{% static 'images/service/cross.svg' %}"
+                                                 alt="Cross">
+                                            Clean sorem ipsum morbin
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="service__card">
+                                <img src="{% static 'images/service/cardThree.jpg' %}" alt="Room Breakfast"
+                                     class="service__card-img">
+                                <div class="service__card-text">
+                                    <h4 class="service__card-title">
+                                        Room Breakfast
+                                    </h4>
+                                    <p class="service__card-price">
+                                        $30<span class="service__card-day">/ daily</span>
+                                    </p>
+                                    <ul class="service__card-list">
+                                        <li class="service__card-item">
+                                            <img class="service__card-icon" src="{% static 'images/service/done.svg' %}"
+                                                 alt="Done">
+                                            Hotel ut nisan the duru
+                                        </li>
+                                        <li class="service__card-item">
+                                            <img class="service__card-icon" src="{% static 'images/service/done.svg' %}"
+                                                 alt="Done">
+                                            Orci miss natoque vasa ince
+                                        </li>
+                                        <li class="service__card-item">
+                                            <img class="service__card-icon" src="{% static 'images/service/cross.svg' %}"
+                                                 alt="Cross">
+                                            Clean sorem ipsum morbin
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="service__card">
+                                <img src="{% static 'images/service/cardFour.jpg' %}" alt="Room Breakfast"
+                                     class="service__card-img">
+                                <div class="service__card-text">
+                                    <h4 class="service__card-title">
+                                        Safe & Secure
+                                    </h4>
+                                    <p class="service__card-price">
+                                        $15<span class="service__card-day">/ daily</span>
+                                    </p>
+                                    <ul class="service__card-list">
+                                        <li class="service__card-item">
+                                            <img class="service__card-icon" src="{% static 'images/service/done.svg' %}"
+                                                 alt="Done">
+                                            Hotel ut nisan the duru
+                                        </li>
+                                        <li class="service__card-item">
+                                            <img class="service__card-icon" src="{% static 'images/service/done.svg' %}"
+                                                 alt="Done">
+                                            Orci miss natoque vasa ince
+                                        </li>
+                                        <li class="service__card-item">
+                                            <img class="service__card-icon" src="{% static 'images/service/cross.svg' %}"
+                                                 alt="Cross">
+                                            Clean sorem ipsum morbin
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="service-pagination"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+{% endblock %}

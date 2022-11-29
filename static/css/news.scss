@@ -1,0 +1,94 @@
+.news {
+  padding: 120px 0;
+  background: $darkBg;
+  .swiper-slide {
+    height: 496px;
+    &:hover .news__card-text {
+      bottom: 20px;
+    }
+    &:hover .news__card-image img {
+      filter: brightness(75%);
+      transform: scale(1.09, 1.09);
+      transition: all 1s ease;
+    }
+  }
+  .swiper-button-prev, .swiper-button-next {
+    width: 40px;
+    height: 40px;
+    line-height: 34px;
+    background: transparent;
+    color: #fff;
+    font-size: 11px;
+    margin-right: 15px;
+    margin-left: 15px;
+    cursor: pointer;
+    border: 1px solid rgba(255,255,255, 0.7);
+    border-radius: 100%;
+    transition: all 0.2s ease-in-out;
+    transform: scale(1.0) translateY(-50%);
+    &:hover {
+      transform: scale(0.9) translateY(-50%);
+      background: transparent;
+      border: 1px solid #b19777;
+      color: #FFF;
+    }
+    &:after {
+      font-size: 11px;
+      font-weight: 600;
+    }
+  }
+  &__card {
+    position: relative;
+    //width: 320px;
+    &-date {
+      height: 67.5px;
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.5);
+      padding: 5px 10px;
+      text-align: center;
+      z-index: 2;
+      & p {
+        @include text(12px, 3px, #fff);
+        text-transform: uppercase;
+        font-family: $condensed;
+      }
+      & span {
+        font-family: $condensed;
+        font-size: 24px;
+        color: #fff;
+      }
+    }
+    &-image {
+      overflow: hidden;
+      & img {
+        width: 100%;
+        transition: all .5s;
+        filter: brightness(100%);
+      }
+    }
+    &-text {
+      position: absolute;
+      bottom: -60px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 280px;
+      padding: 20px;
+      background-color: #2b2b2b;
+      border: 1px solid #2b2b2b;
+      transition: .2s cubic-bezier(.3, .58, .55, 1);
+    }
+    &-subtitle {
+      @include text(12px, 3px, $brown);
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+    &-title {
+      color: #fff;
+      font-size: 24px;
+      margin-bottom: 0;
+    }
+  }
+}

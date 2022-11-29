@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Bookings</title>
+  <meta name="description" content="Bookings">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.css">
+  <link rel="stylesheet" href="//cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <table id="manager" class="table table-striped table-bordered" style="width:100%" data-server-side="true" data-ajax="/api/accounts/?format=datatables">
+          <thead>
+            <tr>
+              <th data-data="rank">Rank</th>
+              <th data-data="name">Album name</th>
+              <th data-data="year">Year</th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </div>
+  </div>
+  <script src="//code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+  <script src="//cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
+  <script>
+      $(document).ready(function() {
+        $('#albums').DataTable({
+              'serverSide': true,
+              'ajax': '/api/albums/?format=datatables',
+              'columns': [
+                  {'data': 'rank'},
+                  {'data': 'artist.name', 'name': 'artist.name'},
+                  {'data': 'name'},
+                  {'data': 'year'},
+                  {'data': 'genres', 'name': 'genres.name'},
+              ]
+
+          });
+      });
+  </script>
+</body>
+</html>

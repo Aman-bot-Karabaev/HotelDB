@@ -1,0 +1,62 @@
+{% extends 'base_auth.html' %}
+{% load static %}
+{% block content %}
+<main>
+    <style>
+        .head {
+            background-image: url("{% static 'images/background/restaurant2.webp' %}");
+        }
+    </style>
+    <section class="head">
+        <div class="container">
+            <p class="subtitle subtitle-white">The Cappa Luxury Hotel</p>
+            <h2 class="head__title">Your Profile</h2>
+        </div>
+    </section>
+    <section class="profile">
+        <div class="container">
+            <div class="profile__content">
+                <div class="profile__user">
+                    {% if object.avatar %}
+                        <img class="profile__user-img" src="{{ object.avatar.url }}" alt="User">
+                    {% else %}
+                        <img class="profile__user-img" src="{% static 'images/icon/profile.png' %}" alt="User">
+                    {% endif %}
+                    
+                    <div class="profile__user-info">
+                        <div class="stars">
+                            <img src="{% static 'images/all/star.png' %}" alt="Star">
+                            <img src="{% static 'images/all/star.png' %}" alt="Star">
+                            <img src="{% static 'images/all/star.png' %}" alt="Star">
+                            <img src="{% static 'images/all/star.png' %}" alt="Star">
+                            <img src="{% static 'images/all/star.png' %}" alt="Star">
+                        </div>
+                    <h5 class="profile__user-name">{{object.full_name}}</h5>
+                        <div class="profile__user-text">
+                            <p class="desc">{{object.phone}}</p>
+                            <p class="desc">{{object.email}}</p>
+                    <a href="{% url 'logout' %}" class="btn-brown btn-brown_small">Log Out</a> 
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="profile__message">
+                    <h5 class="profile__user-name">Leave a Reply</h5>
+                    <form method="post" class="profile__form" action="{% url 'create_comment' %}">
+                        {% csrf_token %}
+
+                        <label>
+                            {{form.content}}
+                        </label>
+                        <button class="btn-brown btn-brown_small">Send Comment</button>
+          
+                    
+                      
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+{% endblock %}

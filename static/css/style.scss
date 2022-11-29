@@ -1,0 +1,196 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow&family=Barlow+Condensed&family=Gilda+Display&display=swap');
+
+$condensed: 'Barlow Condensed', sans-serif;
+$gilda: 'Gilda Display', serif;
+
+$brown: #aa8453;
+$grey: rgba(255, 255, 255, 0.5);
+$darkBg: #1e1e1e;
+
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  outline: none;
+  list-style: none;
+  text-decoration: none;
+  scroll-behavior: smooth;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.75em;
+  font-family: 'Barlow', sans-serif;
+}
+
+body {
+  background: #222;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $gilda;
+  font-weight: 400;
+  line-height: 1.25em;
+  margin-bottom: 20px;
+}
+
+main, footer {
+  max-width: 79%;
+  margin-left: auto;
+}
+
+img {
+  height: auto;
+  transition: all 0.5s;
+}
+
+input[type=date]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  background-image: url("../images/all/calendar.svg");
+}
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+@mixin text($fz, $lt, $c) {
+  font-size: $fz;
+  letter-spacing: $lt;
+  color: $c;
+}
+
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 60px;
+}
+
+.subtitle {
+  font-family: $condensed;
+  @include text(15px, 6px, $brown);
+  text-transform: uppercase;
+
+  &-white {
+    color: #fff;
+  }
+}
+
+.title {
+  font-size: 45px;
+  color: #fff;
+}
+
+.desc {
+  font-size: 15px;
+  line-height: 1.75em;
+  color: $grey;
+  margin-bottom: 20px;
+}
+
+.btn {
+  @include text(15px, 3px, #fff);
+  font-family: $condensed;
+  text-transform: uppercase;
+  background: transparent;
+  padding: 11px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  &-brown {
+    @include text(15px, 3px, #fff);
+    padding: 0 30px;
+    background: #aa8453;
+    font-family: 'Barlow Condensed', sans-serif;
+    line-height: 62.5px;
+    border: 2px solid #aa8453;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-transform: uppercase;
+    &:hover {
+      background: transparent;
+      border: 2px solid #fff;
+    }
+    &_small {
+      padding: 13px 22px;
+      line-height: 1.2em;
+    }
+  }
+}
+
+.contact {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+
+  .desc-number {
+    margin-bottom: 0;
+  }
+
+  &__img {
+    width: 35px;
+  }
+
+  &__number {
+    @include text(24px, 0, $brown);
+    font-family: $condensed;
+    line-height: 0;
+  }
+}
+
+.swiper-vertical > .swiper-pagination-bullets {
+  right: 70px;
+}
+
+.swiper-vertical > .swiper-pagination-bullets .swiper-pagination-bullet {
+  margin-bottom: 10px;
+}
+
+.swiper-pagination-bullet {
+  height: 12px;
+  width: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  display: block;
+  margin-bottom: 10px;
+  opacity: 1;
+  background: transparent;
+}
+
+.swiper-pagination-bullet-active {
+  border-color: #aa8453;
+  background: #aa8453;
+}
+
+.swiper-pagination-bullet {
+  transition: all 0.5s;
+  &:hover {
+    border-color: #aa8453;
+    background: #aa8453;
+  }
+}
+
+::selection {
+  color: #fff;
+  background: #aa8453;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+}
+
+@import "header";
+@import "home";
+@import "experience";
+@import "rooms";
+@import "service";
+@import "video";
+@import "facilties";
+@import "testimonials";
+@import "relaxation";
+@import "news";
+@import "footer";
+@import "head";
+@import "login";
+@import "team";
+@import "prices";
+@import "slide";
+@import "restaurant";
+@import "menu";
+@import "profile";

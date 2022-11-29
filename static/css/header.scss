@@ -1,0 +1,50 @@
+.header {
+  padding: 60px 45px;
+  height: 100vh;
+  width: 21%;
+  background: #1b1b1b;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  overflow-x: hidden;
+  &__logo {
+    text-align: center;
+    text-transform: uppercase;
+  }
+  &__title {
+    @include text(30px, 3px, $brown);
+    margin-bottom: 0;
+  }
+  &__subtitle {
+    @include text(12px, 6px, #fff);
+    font-family: $condensed;
+    line-height: 1.5em;
+  }
+  &__navbar {
+    margin: 60px 0 90px;
+  }
+  &__list {
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+    text-transform: uppercase;
+  }
+  &__item:last-child {
+    margin-top: 25px;
+  }
+  &__link {
+    @include text(15px, 0.5px, $grey);
+    line-height: 1.25em;
+    transition: all 0.5s;
+    display: flex;
+    align-items: center;
+    column-gap: 8px;
+    &-icon {
+      width: 21px;
+    }
+    &:hover {
+      color: $brown;
+    }
+  }
+}

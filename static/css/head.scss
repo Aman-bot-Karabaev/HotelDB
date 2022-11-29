@@ -1,0 +1,29 @@
+.head {
+  background: url("../images/background/aboutBg.webp") center/cover no-repeat fixed;
+  position: relative;
+  height: 60vh;
+  padding: 120px 0;
+  &:before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+  .container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: inherit;
+  }
+  &__title {
+    margin: 10px 0 0 0;
+    font-size: 60px;
+    color: #fff;
+  }
+}
