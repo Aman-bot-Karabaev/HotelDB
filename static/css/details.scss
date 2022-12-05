@@ -1,0 +1,14 @@
+.details {
+  padding: 120px 0;
+  .restaurant__list li {
+    display: flex;
+    align-items: center;
+    column-gap: 15px;
+    margin-bottom: 10px;
+  }
+  &__info {
+    display: flex;
+    column-gap: 70px;
+    align-items: center;
+  }
+}

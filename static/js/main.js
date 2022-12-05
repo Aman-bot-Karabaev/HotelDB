@@ -1,12 +1,4 @@
-// let btnStore = document.querySelector('.store-btn')
-// let storeCard = document.getElementsByClassName('store__card-hide')
-// // let storeCardNode = document.querySelectorAll('.hide-card')
-//
-//
-// btnStore.addEventListener('click', function () {
-//     Array.from(storeCard).map((e) => e.style.display = 'block', btnStore.style.display = 'none')
-// })
-
+new WOW().init();
 
 const swiperHome = new Swiper(".homeSwiper", {
     direction: "vertical",
@@ -86,7 +78,7 @@ const swiperTeam = new Swiper(".teamSwiper", {
     },
 });
 
-const swiper = new Swiper(".slideSwiper", {
+const swiperSlide = new Swiper(".slideSwiper", {
     loop: true,
     loopFillGroupWithBlank: true,
     pagination: {
@@ -97,3 +89,34 @@ const swiper = new Swiper(".slideSwiper", {
         disableOnInteraction: false
     },
 });
+
+const swiperMenu = new Swiper(".menuSwiper", {
+    slidesPerView: 4,
+    spaceBetween: 0,
+    freeMode: true,
+    autoplay: {
+        delay: 5000,
+        disableOnInteraction: false
+    },
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+    },
+});
+
+let menuCategory = document.querySelectorAll('.menu__category')
+let menuList = document.querySelectorAll('.menu__list')
+Array.from(menuCategory).forEach((item, idx) => {
+    item.setAttribute('data-id', `${idx + 1}`)
+    item.addEventListener('click', () => {
+        Array.from(menuList).forEach((el, index) => {
+            if (index + 1 === +item.dataset.id) {
+                // item.classList.add('border')
+                el.classList.add('scale')
+            } else {
+                // item.classList.remove('border')
+                el.classList.remove('scale')
+            }
+        })
+    })
+})

@@ -4,4 +4,61 @@
   .title, .subtitle {
     text-align: center;
   }
+  .swiper-slide {
+    max-width: 211px;
+  }
+  .menuSwiper {
+    max-width: 83.333333%;
+  }
+  //.border {
+  //  border: 1px solid #aa8453;
+  //}
+  &__swipe {
+    margin-top: 30px;
+    position: relative;
+  }
+  &__buttons {
+    position: absolute;
+    width: 100%;
+    top: 65%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  &__category {
+    cursor: pointer;
+    font-size: 20px;
+    color: #fff;
+    background: transparent;
+    border: 1px solid transparent;
+    padding: 15px;
+    text-align: center;
+    &:hover {
+        border: 1px solid #aa8453;
+    }
+  }
+  &__list {
+    margin-top: 60px;
+    display: none;
+    justify-content: space-between;
+    &-content {
+      width: 40%;
+    }
+    &-title {
+      font-size: 20px;
+      color: #aa8453;
+      margin-bottom: 10px;
+      border-bottom: 1px dashed #aa8453;
+      line-height: 2em;
+      display: flex;
+      justify-content: space-between;
+    }
+    &-price {
+      color: #adadad;
+      font-size: 20px;
+      line-height: 2em;
+    }
+  }
+  .scale {
+    display: flex;
+  }
 }

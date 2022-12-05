@@ -25,12 +25,6 @@ class User(AbstractUser):
     
     
 
-
-# class Guest(models.Model):
-#     full_name = models.CharField("full_name",max_length=150)
-#     email = models.CharField("Email",max_length=100)
-
-
 class Comment(models.Model):
     author = models.ForeignKey(User,on_delete=models.CASCADE,null=True)
     created = models.DateTimeField(auto_now_add=True)

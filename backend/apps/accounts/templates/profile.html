@@ -6,6 +6,7 @@
         .head {
             background-image: url("{% static 'images/background/restaurant2.webp' %}");
         }
+        
     </style>
     <section class="head">
         <div class="container">
@@ -35,7 +36,9 @@
                         <div class="profile__user-text">
                             <p class="desc">{{object.phone}}</p>
                             <p class="desc">{{object.email}}</p>
-                    <a href="{% url 'logout' %}" class="btn-brown btn-brown_small">Log Out</a> 
+                    <a href="{% url 'logout' %}" class="btn-brown btn-brown_small profile__btn"
+                    style="width: 100px; padding: 8px 15px;"
+                    >Log Out</a> 
                         </div>
                     </div>
                 </div>

@@ -29,7 +29,7 @@ class Rooms(models.Model):
     info = models.TextField("Описание")
     price = models.DecimalField(max_digits=20, decimal_places=2)
     picture = models.ImageField("Фото", upload_to="product/imgs/")
-
+    
     is_available = models.BooleanField(default=True)
     category = models.ForeignKey(Category,on_delete=models.SET_NULL,null=True)
     persons = models.CharField("persons",max_length=20,null=True)
@@ -39,8 +39,8 @@ class Rooms(models.Model):
         verbose_name = "Номер"
         verbose_name_plural = "Номера"
 
-    # def __str__(self):
-    #     return f"Room #{self.id}"
+    def __str__(self):
+        return f"Room #{self.id}"
 
 class RoomImage(models.Model):
     room=models.ForeignKey(Rooms, on_delete=models.CASCADE)

@@ -217,13 +217,14 @@
     {{booking.check_out}}
     <h5>Price: {{booking.get_booking_price}}</h5>
 
-    {% if not booking.user %}
+
     <div class="testbox">
-    
-    <form method="post">
+    {% if not booking.user %}
+    <form method="POST" action="{% url 'booking' booking.pk booking.room.pk %}">
+      {% csrf_token %}
       <div class="banner">
         <h1>Reservation Form</h1>
-       
+
       </div>
       <br/>
       <fieldset>
@@ -249,10 +250,13 @@
         </div>
       </fieldset>
     </div>
+
+ 
     <button class="btn btn-primary">Сохранить</button>
     </form>
     {% else %}
-        <a href=""><button> Подтвердить </button></a>
+      <a href="{% url 'success' %}"><button> Complete </button></a>
     {% endif %}
   </body>
+
   </html>

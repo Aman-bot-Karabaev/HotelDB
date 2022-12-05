@@ -7,3 +7,4 @@ class RoomsAdmin(admin.ModelAdmin):
                                 
 
 admin.site.register(Comment)
+

@@ -18,8 +18,8 @@ class BookingForm(forms.ModelForm):
             format='%d-%m-%Y',
              attrs={'type': 'date', 'class': 'home__form-input'}
         ),
-        "adult": forms.NumberInput(attrs={"class":"home__form-input"}),
-        "children": forms.NumberInput(attrs={"class": "home__form-input"})
+        "adult": forms.NumberInput(attrs={"class":"home__form-input","placeholder":"Adult"}),
+        "children": forms.NumberInput(attrs={"class": "home__form-input","placeholder":"Children"})
         }
 
 

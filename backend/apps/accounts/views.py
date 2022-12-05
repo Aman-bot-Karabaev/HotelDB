@@ -11,16 +11,15 @@ from django.views.generic import TemplateView
 from rest_framework import viewsets
 
 
-
-
 # Create your views here.
+
 
 from backend.apps.accounts.models import User
 # from backend.apps.rooms.models import Rooms
 from backend.apps.accounts.forms import LoginForm, UserRegisterForm, CommentForm
 from backend.apps.rooms.views import Contact
 from backend.apps.rooms.models import Booking
-from .serializers import BookingSerializer
+# from .serializers import BookingSerializer
 
 class LoginView(FormView):
     template_name = "login.html"
@@ -84,14 +83,22 @@ class CreateCommentView(LoginRequiredMixin, FormView):
         return super().form_valid(form)
 
 
-def index(request):
-    return render(request, 'manager_page.html')
-
-
-class BookingViewSet(viewsets.ModelViewSet):
-    queryset = Booking.objects.all()
-    serializer_class = BookingSerializer
 
 
 
        
+
+
+
+
+
+ 
+# Create your views here.
+def manager(request):
+    all_bookings = Booking.objects.all()
+    return render(request, 'manager_page.html', {'all_bookings': all_bookings})
+ 
+def insert(request):
+    booking = Booking(customer=request.POST['name'], check_in=request.POST['check_in'])
+    booking.save()
+    return redirect('manager/')

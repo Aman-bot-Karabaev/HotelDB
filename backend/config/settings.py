@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'backend.apps.accounts',
     'backend.apps.rooms',
+    'backend.apps.restaurant',
     'django_filters',
 ]
 
@@ -125,9 +126,17 @@ USE_L10N = True
 
 USE_TZ = True
 
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'itrun.test@gmail.com'
+EMAIL_PASSWORD = 'luixbkqnrybucukg'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
+
 
 STATIC_URL = 'C:/Users/User/Desktop/django_hotel/Hotel/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
@@ -135,7 +144,6 @@ STATICFILES_DIRS = [
     'C:/Users/User/Desktop/django_hotel/Hotel/static/',
 ]
  
-
 
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR,'media/')

@@ -4,6 +4,9 @@ from django.contrib import admin
 
 from backend.apps.rooms.models import *
 
+
+admin.site.register(Booking)
+
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ["name"]
@@ -21,6 +24,8 @@ class RoomImageInline(admin.StackedInline):
 
 class RoomAdmin(admin.ModelAdmin):
   inlines = [RoomImageInline]
-
+admin.site.register(Contact)
+class RoomsAdmin(admin.ModelAdmin):
+    context = User.objects.all()
 admin.site.register(RoomImage, ImageAdmin)
 admin.site.register(Rooms, RoomAdmin)

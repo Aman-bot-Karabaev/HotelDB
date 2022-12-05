@@ -15,7 +15,9 @@
     
     <link rel="stylesheet" href="{% static 'css/animate.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-
+    {% block style_css %}
+        
+    {% endblock%}
 </head>
 <body>
 
@@ -44,7 +46,7 @@
                 <a href="{% url 'rooms' %}" class="header__link">Rooms & Suites</a>
             </li>
             <li class="header__item">
-                <a href="../restaurant/index.html" class="header__link">Restaurant</a>
+                <a href="{% url 'restaurant' %}" class="header__link">Restaurant</a>
             </li>
             <li class="header__item">
                 <a href="#" class="header__link">Spa Center</a>
@@ -146,7 +148,7 @@
                         <a href="tel: 855 100 4444">855 100 4444</a>
                     </div>
                     <div class="footer__email">
-                        info@luxuryhotel.com
+                        managerkarabaev@gmail.com
                     </div>
                     <div class="footer__links">
                         <a href="">
@@ -196,9 +198,6 @@
 
 <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
 <script src="{% static 'js/wow.min.js' %}"></script>
-<script>
-    new WOW().init();
-</script>
 <script src="{% static 'js/main.js' %}"></script>
 </body>
 </html>

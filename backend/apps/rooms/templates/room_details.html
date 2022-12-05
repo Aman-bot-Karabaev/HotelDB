@@ -1,85 +1,91 @@
 {% extends 'base.html' %}
 {% load static %}
-
 {% block content %}
 <main>
-    <section class="head">
-        <div class="container">
-            <div class="stars">
-                <img src="{% static 'images/all/star.png' %}" alt="Star">
-                <img src="{% static 'images/all/star.png' %}" alt="Star">
-                <img src="{% static 'images/all/star.png' %}" alt="Star">
-                <img src="{% static 'images/all/star.png' %}" alt="Star">
-                <img src="{% static 'images/all/star.png' %}" alt="Star">
+    <section class="slide">
+        <div class="swiper slideSwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="slide__content slide__content-one"></div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="slide__content slide__content-two"></div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="slide__content slide__content-three"></div>
+                </div>
             </div>
-            <p class="subtitle subtitle-white">The Cappa Luxury Hotel</p>
-            <h2 class="head__title">Rooms & Suites</h2>
+            <div class="swiper-pagination"></div>
         </div>
+        <a href="#details">
+            <div class="slide__anchor wow bounce">
+                <img src="{% static 'images/rooms/icons/arrow.svg' %}" alt="arrow">
+            </div>
+        </a>
     </section>
-    <section class="prices">
+    <section class="details" id="details">
         <div class="container">
-            <div class="prices__row">
-                {% for object in object_list %}
-                <div class="prices__card wow fadeInUp">
-                    <div class="prices__card-img">
-                        <img src="{{object.picture.url}}" alt="Room">
-                    </div>
-                    <div class="prices__card-text">
-                        <h6 class="prices__card-price">
-                            {{object.price}} $
-                            <span class="prices__card-night">/ Night</span>
-                        </h6>
-                        <h5 class="prices__card-title">{{object.category.name}}</h5>
-                        <p class="desc">{{object.info}}</p>
-                        <ul class="prices__card-info">
-                            <li class="prices__card-item">
-                                <img class="prices__card-icon" src="{% static 'images/icons/persons.svg' %}" alt="persons">
-                                {{object.persons}}
+            <div class="details__room">
+                <div class="stars">
+                    <img src="{% static 'images/all/star.png' %}" alt="Star">
+                    <img src="{% static 'images/all/star.png' %}" alt="Star">
+                    <img src="{% static 'images/all/star.png' %}" alt="Star">
+                    <img src="{% static 'images/all/star.png' %}" alt="Star">
+                    <img src="{% static 'images/all/star.png' %}" alt="Star">
+                </div>
+                
+                <p class="subtitle">
+                    LUXURY HOTEL
+                </p>
+                <h3 class="title">
+                    {{ object.category.name }}
+                </h3>
+                <p class="desc">
+                    {{object.info}}
+                    <br>
+                    <br>
+                    Interdum et malesu they adamale fames ac anteipsu pimsine faucibus curabitur arcu site feugiat in tortor in, volutpat sollicitudin libero. Hotel non lorem acer suscipit bibendum vulla facilisi nedeuter nunc volutpa mollis sapien velet conseyer turpeutionyer masin libero sempe mollis.
+                </p>
+                <div class="details__info">
+                    <div class="details__text">
+                        <h4 class="restaurant__title">Check-in</h4>
+                        <ul class="restaurant__list">
+                            <li class="desc">
+                                <img src="{% static 'images/service/done.svg' %}" alt="Done">
+                                Check-in from 9:00 AM - anytime
                             </li>
-                            <li class="prices__card-item">
-                                <img class="prices__card-icon" src="{% static 'images/icons/bed.svg' %}" alt="persons">
-                                Twin Bed
-                            </li>
-                            <li class="prices__card-item">
-                                <img class="prices__card-icon" src="{% static 'images/icons/time.svg' %}" alt="persons">
-                                200 sqft
-                            </li>
-                            <li class="prices__card-item">
-                                <img class="prices__card-icon" src="{% static 'images/icons/wifi.svg' %}" alt="persons">
-                                Free Wifi
-                            </li>
-                            <li class="prices__card-item">
-                                <img class="prices__card-icon" src="{% static 'images/icons/breakfast.svg' %}" alt="persons">
-                                Breakfast
-                            </li>
-                            <li class="prices__card-item">
-                                <img class="prices__card-icon" src="{% static 'images/icons/pool.svg' %}" alt="persons">
-                                S. Pool
+                            <li class="desc">
+                                <img src="{% static 'images/service/done.svg' %}" alt="Done">
+                                Early check-in subject to availability
                             </li>
                         </ul>
-                        <div class="prices__card-links">
-                            <a class="prices__card-link" href="{% url 'room_detail' object.id   %}">
-                                Details
-                                <span class="rooms__card-arrow">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                                             stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                             stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5"
-                                                                                                               y1="12"
-                                                                                                               x2="19"
-                                                                                                               y2="12"
-                                                                                                               id="id_103"
-                                                                                                               style="stroke: #999999;"></line><polyline
-                                                points="12 5 19 12 12 19" id="id_104"
-                                                style="stroke: #999999;"></polyline></svg>
-                                </span>
-                            </a>
-                            <a href="{% url 'index' %}">
-                            <button class="btn-brown btn-brown_small">Book Now</button>
-                            </a>
-                        </div>
                     </div>
+                    <div class="details__text">
+                        <h4 class="restaurant__title">Check-out</h4>
+                        <ul class="restaurant__list">
+                            <li class="desc">
+                                <img src="{% static 'images/service/done.svg' %}" alt="Done">
+                                Check-out before noon
+                            </li>
+                            <li class="desc">
+                                <img src="{% static 'images/service/done.svg' %}" alt="Done">
+                                Express check-out
+                            </li>
+                        </ul>
+                    </div>
+                
                 </div>
-                {% endfor %}
+                <h4 class="restaurant__title">Special check-in instructions</h4>
+                <p class="desc">
+                    Guests will receive an email 5 days before arrival with check-in instructions; front desk staff will greet guests on arrival For more details, please contact the property using the information on the booking confirmation.
+                </p>
+                <h4 class="restaurant__title">Pets</h4>
+                <p class="desc">
+                    Pets not allowed            </p>
+                <h4 class="restaurant__title">Children and extra beds</h4>
+                <p class="desc">
+                    Children are welcome Kids stay free! Children stay free when using existing bedding; children may not be eligible for complimentary breakfast Rollaway/extra beds are available for $ 10 per day.            </p>
+                <button class="btn-brown btn-brown_small">Check Now</button>
             </div>
         </div>
     </section>
@@ -242,5 +248,4 @@
         </div>
     </section>
 </main>
-
 {% endblock %}
