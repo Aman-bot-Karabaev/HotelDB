@@ -111,7 +111,7 @@ class RoomDetail(DetailView):
     template_name = "room_details.html"
     model = Rooms
     queryset = Rooms.objects.filter()
-    
+   
 
 class AboutPage(TemplateView):
     template_name = 'about.html'
