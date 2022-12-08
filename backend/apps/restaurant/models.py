@@ -4,12 +4,11 @@ from backend.apps.rooms.models import Contact
 # Create your models here.
 
 class RestaurantBook(models.Model):
-    first_name = models.CharField(max_length=15,null=False)
-    last_name = models.CharField(max_length=15,null=False)
+    name=models.CharField(max_length=100,null=False,default=None)
     phone = models.CharField("Номер телефона", max_length=14,null=False)
     email = models.CharField(max_length=100,null=False)
     time = models.DateTimeField("Время брони", null=True)
-    pesons = models.PositiveSmallIntegerField("Persons",null=True,default=1)
+    persons = models.PositiveSmallIntegerField("Persons",null=True,default=1)
     message=models.TextField(max_length=2000,null=True)
 
 
@@ -32,6 +31,13 @@ class Category(models.Model):
 
 class RestaurantMenu(models.Model):
     name = models.CharField(max_length=100)
-    category = models.ForeignKey(Category,on_delete=models.SET_NULL,null=True)
+    category = models.ForeignKey(Category,on_delete=models.SET_NULL,related_name="m_category",null=True)
     price  = models.DecimalField(max_digits=20, decimal_places=2)
     info = models.TextField("Описание")
+
+    def print_menu_by_category():
+        categories = Category.objects.all()
+        for category in categories:
+            items = RestaurantMenu.objects.filter(category=category)
+            for item in items:
+                print(f"{item.name} - {item.price}")

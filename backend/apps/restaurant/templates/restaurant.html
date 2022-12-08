@@ -277,6 +277,37 @@
         </div>
     </section>
 
+    <section class="login">
+        <div class="container">
+            <h3 class="title">Book a table in a restaurant</h3>
+            <form class="login__form form" method="post">
+                {% csrf_token %}
+                <label class="login__field">
+                    {{ form.name }}
+                </label>
+
+                <label class="login__field">
+                    {{ form.phone }}
+                </label>
+
+                <label class="login__field">
+                    {{ form.email }}
+                </label>
+
+                <label class="login__field">
+                    {{ form.time }}
+                </label>
+
+                <label class="login__field">
+                    {{ form.persons }}
+                </label>
+
+                <a href="">
+                    <button class="btn-brown" type="submit">Book a table</button>
+                </a>
+            </form>
+        </div>
+    </section>
 </main>
 
 {% endblock %}

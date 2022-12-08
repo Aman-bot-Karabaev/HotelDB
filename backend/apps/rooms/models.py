@@ -61,6 +61,7 @@ class Booking(models.Model):
         (BOOKING_STATUS_REJECTED, 'Отменен'),
         (BOOKING_STATUS_FINISHED, 'Завершен'),
     )
+    
     customer = models.ForeignKey(Contact, on_delete=models.CASCADE,null=True)
     user = models.ForeignKey(User,on_delete=models.SET_NULL,null=True)
     check_in = models.DateField("Дата заезда", null=True)
