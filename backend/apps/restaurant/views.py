@@ -14,3 +14,4 @@ class RestaurantPage(FormView):
 
 class SuccessView(TemplateView):
     template_name = 'successs.html'
+

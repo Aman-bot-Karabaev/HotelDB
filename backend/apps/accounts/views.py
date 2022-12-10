@@ -1,5 +1,6 @@
 # Create your views here.
 from django.contrib.auth.mixins import LoginRequiredMixin
+from backend.apps.restaurant.models import RestaurantBook
 # from django.contrib.auth.models import AnonymousUser
 from django.shortcuts import render,redirect
 from django.views.generic import FormView, CreateView, DetailView, ListView
@@ -85,13 +86,6 @@ class CreateCommentView(LoginRequiredMixin, FormView):
 
 
 
-
-       
-
-
-
-
-
  
 # Create your views here.
 def manager(request):
@@ -102,3 +96,8 @@ def insert(request):
     booking = Booking(customer=request.POST['name'], check_in=request.POST['check_in'])
     booking.save()
     return redirect('manager/')
+
+def restaurant_manager(request):
+    all_restaurant_bookings = RestaurantBook.objects.all()
+    return render(request, 'restaurant_manager.html', {'all_restaurant_bookings': all_restaurant_bookings})
+ 

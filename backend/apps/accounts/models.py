@@ -38,3 +38,16 @@ class Comment(models.Model):
 
     def str(self):
         return f"{self.content}"[:100]
+
+
+class Employees(models.Model):
+    avatar = models.ImageField(
+        upload_to="users/avatars/",
+        null=True, # для базы
+        blank=True, # для формы 
+        verbose_name="Фото профиля"
+    )
+    full_name=models.CharField(max_length=100,null=False,default=None)
+    email=models.CharField(max_length=100,null=False)
+    post = models.CharField(max_length=50,null=False,default=None)
+    

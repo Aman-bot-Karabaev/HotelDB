@@ -10,9 +10,12 @@ from django.conf import settings
  
 from backend.apps.rooms.models import Rooms,Booking,Contact
 from .forms import BookingForm,ContactForm
-from backend.apps.accounts.models import Comment,User
+from backend.apps.accounts.models import Comment,User,Employees
 # Create your views here.
-
+class IndexRooms(ListView):
+    template_name = 'index.html'
+    model = Rooms
+    queryset = Rooms.objects.all()
 
 class IndexPage(CreateView):
     template_name = 'index.html'
@@ -37,7 +40,8 @@ class IndexPage(CreateView):
         print(booking_id)
         return reverse_lazy('rooms_booking', kwargs={"booking_id":booking_id})
 
-    
+
+
 class RoomsBookingPage(ListView):
     template_name = 'rooms_booking1.html'
     model = Rooms
@@ -48,6 +52,11 @@ class RoomsBookingPage(ListView):
         booking_id = self.kwargs.get("booking_id")
         context["booking_pk"] = booking_id
         return context
+
+    # def get_queryset(self):
+        #   booking_id = self.kwargs.get("booking_id")
+    #     queryset = Rooms.objects.filter()
+    #     return queryset
 
 from django.shortcuts import get_object_or_404
 from django.contrib.auth.tokens import default_token_generator
@@ -69,7 +78,7 @@ class EndBookingView(View):
             "form":form,
         }
         return render(request,"booking_page.html",context)
-    
+
 
     def post(self, request,booking_pk, room_pk):
         form = ContactForm(request.POST)
@@ -80,7 +89,7 @@ class EndBookingView(View):
         booking.save()
         if form.is_valid():
                 email = form.cleaned_data["email"]
-             
+
                 subject = "success booking"
                 email_template_name = "success_booking_email.html"
                 message_data = {
@@ -91,16 +100,15 @@ class EndBookingView(View):
                     r=send_mail(subject=subject,message=text_email,
                     recipient_list=[email],
                     from_email = settings.EMAIL_HOST_USER,
-                    fail_silently=True,)
+                    fail_silently=True)
                     print(r)
                 except BadHeaderError:
                     return HttpResponse("Invalid Header")
                 return redirect(reverse_lazy("success"))
-        
-         
+
+
         return redirect("success")
         
-
 
 class RoomsPage(ListView):
     template_name = 'rooms.html'
@@ -113,8 +121,11 @@ class RoomDetail(DetailView):
     queryset = Rooms.objects.filter()
    
 
-class AboutPage(TemplateView):
+class AboutPage(ListView):
     template_name = 'about.html'
+    model = Employees
+    queryset = Employees.objects.all()
+
 
 class SuccessView(TemplateView):
     template_name = "success.html"

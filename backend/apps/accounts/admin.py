@@ -1,5 +1,5 @@
 from django.contrib import admin
-from backend.apps.accounts.models import User, Comment
+from backend.apps.accounts.models import User, Comment,Employees
 
 @admin.register(User)
 class RoomsAdmin(admin.ModelAdmin):
@@ -8,3 +8,4 @@ class RoomsAdmin(admin.ModelAdmin):
 
 admin.site.register(Comment)
 
+admin.site.register(Employees)

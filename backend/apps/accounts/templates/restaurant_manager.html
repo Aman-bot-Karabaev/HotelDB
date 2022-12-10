@@ -9,7 +9,7 @@
 <body>
 <div class="container">
     <div class="row">
-        <h1 class="header__title">Bookings</h1>
+        <h1 class="header__title">Bookings table</h1>
         <hr style="border-top:1px dotted #fff"/>
 
     </div>
@@ -24,17 +24,9 @@
 $(document).ready(function(){
    
    $('#table').DataTable({
-  //  columnDefs: [
-  //      {
-  //      targets: -2, // последняя колонка
-  //      data: null,
-  //      defaultContent: '<button>кнопка</button>',
-  //      }
-  //  ],
-  //  buttons: [
-  //       'copy', 'excel', 'pdf'
-  //   ]
-  //  });
+   
+   
+   });
   
  });
  
@@ -42,50 +34,32 @@ $(document).ready(function(){
 </script>
 </html>
 
-  <!-- Modal -->
-
    
   <hr style="border-top:1px solid #000; clear:both;"/>
   <table id = "table" class = "table table-bordered">
       <thead class="alert-warning">
           <tr>
               <th>Customer</th>
-              <th>Check_in</th>
-              <th>Check_out</th>
-              <th>Adult</th>
-              <th>Children</th>
-              <th>Sum</th>
-              <th>Room</th>
-              <th>Status</th>
-              <th>Created</th>
+              <th>Phone</th>
+              <th>Persons</th>
+              <th>Time</th>
           </tr>
       </thead>
 
       <tbody>
-          {% for booking in all_bookings %}
+          {% for booking in all_restaurant_bookings %}
           <tr>
               <td>
-                {% if booking.user %}
-                  {{booking.user.full_name}}
-                {% else %}
-                  {{ booking.customer }}
-                {% endif %}
-
+                {{booking.name}}
               </td>
-              <td>{{ booking.check_in }}</td>
-              <td>{{ booking.check_out }}</td>
-              <td>{{ booking.adult }}</td>
-              <td>{{ booking.children }}</td>
-              <td>{{booking.get_booking_price}}</td>
-              <td>{{ booking.room }}</td>
-              <td>{{ booking.status }}</td>
-              <td>{{ booking.created }}</td>
+              <td>{{ booking.phone }}</td>
+              <td>{{ booking.persons}}</td>
+              <td>{{ booking.time}}</td>
           </tr>
           {% endfor %}
       </tbody>
-
-      <a href="{% url 'restaurant_manager' %}">
-        <button class="btn-brown" type="submit">Table Bookings</button>
+      <a href="{% url 'manager' %}">
+        <button class="btn-brown" type="submit">Room Bookings</button>
     </a>
 
   </table>
