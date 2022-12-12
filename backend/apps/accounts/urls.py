@@ -1,6 +1,6 @@
 from django.urls import path
 from backend.apps.accounts.views import (
-    LoginView, UserRegisterView, UserInfo, CreateCommentView,logout_user,insert,manager,restaurant_manager
+    LoginView, UserRegisterView, UserInfo, CreateCommentView,logout_user,insert,manager,restaurant_manager,InvalidUser
 )
 
 
@@ -13,6 +13,7 @@ urlpatterns = [
     path("create/comment/", CreateCommentView.as_view(), name="create_comment"), 
     path('manager/', manager, name='manager'),
     path('manager/insert', insert, name='insert' ),
-    path('restaurant_manager',restaurant_manager,name='restaurant_manager')
+    path('restaurant_manager',restaurant_manager,name='restaurant_manager'),
+    path('invalid_user/',InvalidUser.as_view(),name='invalid')
    
 ]

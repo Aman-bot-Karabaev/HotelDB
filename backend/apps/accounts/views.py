@@ -41,7 +41,7 @@ class LoginView(FormView):
                     login(self.request, user)
                     return redirect("index")
             return HttpResponse("<h1>You account is not active</h1")
-        return HttpResponse("<h1>Invalid user data</h1>")
+        return redirect('invalid')
 
 
 
@@ -101,3 +101,5 @@ def restaurant_manager(request):
     all_restaurant_bookings = RestaurantBook.objects.all()
     return render(request, 'restaurant_manager.html', {'all_restaurant_bookings': all_restaurant_bookings})
  
+class InvalidUser(TemplateView):
+    template_name = "invalid_user.html"

@@ -53,10 +53,10 @@ class RoomsBookingPage(ListView):
         context["booking_pk"] = booking_id
         return context
 
-    # def get_queryset(self):
-        #   booking_id = self.kwargs.get("booking_id")
-    #     queryset = Rooms.objects.filter()
-    #     return queryset
+    def get_queryset(self):
+        booking_id = self.kwargs.get("booking_id")
+        queryset = Rooms.objects.filter()
+        return queryset
 
 from django.shortcuts import get_object_or_404
 from django.contrib.auth.tokens import default_token_generator
@@ -75,6 +75,7 @@ class EndBookingView(View):
         form = ContactForm()
         context = {
             "booking":booking,
+            "room":room,
             "form":form,
         }
         return render(request,"booking_page.html",context)

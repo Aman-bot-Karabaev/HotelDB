@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>error</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        .head {
+            background-image: url("{% static 'images/background/aboutBg.webp' %}");
+        }
+    </style>
+</head>
+<body style="background: #1e1e1e">
+
+<header>
+    <section style="height: 30vh; padding-bottom: 40px" class="head">
+        <div class="container">
+            <p class="subtitle subtitle-white">Luxury Hotel</p>
+            <h2 class="head__title">Invalid User data</h2>
+        </div>
+    </section>
+</header>
+<main style="margin-right: auto; position: relative">
+    <section class="reservation">
+        <div class="container" style="padding: 0 30px">
+            <div class="profile__message">
+                <h5 class="restaurant__title">The username or password you entered is incorrect</h5>
+                <a href="{% url 'sign_in' %}">
+                    <button class="btn-brown btn-brown_small">Back</button>
+                </a>

@@ -29,10 +29,10 @@ class ContactForm(forms.ModelForm):
         model = Contact
         fields = ['name', 'email', 'message','phone' ]
         widgets = {
-            'name': forms.TextInput(attrs={"class":"login__input","type":"text", "placeholder":"Name"}),
-            'email': forms.EmailInput(attrs={"class":"login__input","type":"text", "placeholder":"Email"}),
-            'message': forms.Textarea(attrs={"class":"login__input","type":"text", "placeholder":"Comment"}),
-            'phone': forms.TextInput(attrs={"class":"login__input","type":"text", "placeholder":"Enter your phone number..."})
+            'name': forms.TextInput(attrs={"class":"profile__input","type":"text", "placeholder":"Full Name"}),
+            'email': forms.EmailInput(attrs={"class":"profile__input","type":"text", "placeholder":"Email"}),
+            'message': forms.Textarea(attrs={"class":"profile__input profile__area","type":"text", "placeholder":"Message"}),
+            'phone': forms.TextInput(attrs={"class":"profile__input","type":"text", "placeholder":"Phone number"})
         }
 
 

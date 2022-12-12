@@ -12,8 +12,8 @@
   font-weight: 400;
   line-height: 1.75em;
   font-family: "Barlow", sans-serif;
-  -webkit-transition: all 0.3s;
-  transition: all 0.3s;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
 }
 
 body {
@@ -109,6 +109,10 @@ input[type=number]::-webkit-inner-spin-button {
 .btn-brown_small {
   padding: 13px 22px;
   line-height: 1.2em;
+}
+
+.brown {
+  color: #aa8453 !important;
 }
 
 .contact {
@@ -275,9 +279,6 @@ input[type=number]::-webkit-inner-spin-button {
 }
 .header__link-icon {
   width: 21px;
-}
-.header__link:hover {
-  color: #aa8453;
 }
 
 .home {
@@ -1673,4 +1674,52 @@ input[type=number]::-webkit-inner-spin-button {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.reservation__text {
+  color: #aa8453;
+}
+.reservation__title {
+  font-size: 26px;
+  margin-bottom: 10px;
+}
+.reservation__info {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: #222;
+  padding: 25px;
+  color: #fff;
+  width: 350px;
+}
+.reservation__info p, .reservation__info span {
+  font-size: 17px;
+}
+.reservation__info-text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-column-gap: 70px;
+     -moz-column-gap: 70px;
+          column-gap: 70px;
+  border-bottom: 1px solid #2b2b2b;
+  padding: 12px 0 15px 0;
+  margin-bottom: 10px;
+}
+.reservation__info-room {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  border-bottom: 1px solid #2b2b2b;
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+}
+.reservation__info-date {
+  margin-bottom: 10px;
+}
+.reservation__info-price {
+  color: #FFFFFF;
 }
