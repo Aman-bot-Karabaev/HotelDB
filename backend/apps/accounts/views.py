@@ -20,6 +20,7 @@ from backend.apps.accounts.models import User
 from backend.apps.accounts.forms import LoginForm, UserRegisterForm, CommentForm
 from backend.apps.rooms.views import Contact
 from backend.apps.rooms.models import Booking
+from backend.apps.rooms.forms import StatusForm
 # from .serializers import BookingSerializer
 
 class LoginView(FormView):
@@ -88,14 +89,30 @@ class CreateCommentView(LoginRequiredMixin, FormView):
 
  
 # Create your views here.
-def manager(request):
-    all_bookings = Booking.objects.all()
-    return render(request, 'manager_page.html', {'all_bookings': all_bookings})
- 
-def insert(request):
-    booking = Booking(customer=request.POST['name'], check_in=request.POST['check_in'])
-    booking.save()
-    return redirect('manager/')
+class ManagerView(FormView):
+    form_class = StatusForm
+    template_name = 'manager_page.html'
+    model = Booking
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        all_bookings = Booking.objects.all()
+        context['all_bookings'] = all_bookings
+        return context
+    def status(request):
+        context ={}
+        form = StatusForm()
+        context['form']= form
+        if request.GET:
+            temp = request.GET['status']
+            print(temp)
+        return context
+    def form_valid(self, form):
+        if form.is_valid():
+            form.save()
+     
+        return super().form_valid(form)
+
+
 
 def restaurant_manager(request):
     all_restaurant_bookings = RestaurantBook.objects.all()
@@ -103,3 +120,4 @@ def restaurant_manager(request):
  
 class InvalidUser(TemplateView):
     template_name = "invalid_user.html"
+

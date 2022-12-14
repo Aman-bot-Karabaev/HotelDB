@@ -9,7 +9,7 @@ class User(AbstractUser):
         blank=True, # для формы 
         verbose_name="Фото профиля"
     )
-    phone = models.CharField("Номер телефона", max_length=14,null=False, default=False)
+    phone = models.CharField("Номер телефона", max_length=14,null=True)
 
     class Meta:
         verbose_name = "Клиент"

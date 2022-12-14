@@ -267,13 +267,15 @@
         </div>
     </section>
     <section class="team">
-        {% for object in object_list %}
+     
         <div class="container">
             <p class="subtitle">Professionals</p>
             <h3 class="title">Meet The Team</h3>
             <div class="swiper teamSwiper">
                 <div class="swiper-wrapper">
+                    {% for object in object_list %}
                     <div class="swiper-slide">
+                        
                         <div class="team__card">
                             <img class="team__card-img" src="{{object.avatar.url}}" alt="Aman">
                             <div class="team__card-text">
@@ -308,9 +310,11 @@
                             </div>
                         </div>
                     </div>
-                    {% endfor %}
+                    {% endfor %} 
                 </div>
+               
                 <div class="swiper-pagination team-pagination"></div>
+                
             </div>
         </div>
     </section>

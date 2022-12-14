@@ -23,13 +23,16 @@ class Category(models.Model):
     def str(self):
         return f"{self.name}"
 
+class RoomImage(models.Model):
+    image = models.ImageField("Фото", upload_to="rooms/imgs/", null=True)
+
 
 
 class Rooms(models.Model):
     info = models.TextField("Описание")
     price = models.DecimalField(max_digits=20, decimal_places=2)
-    picture = models.ImageField("Фото", upload_to="product/imgs/")
-    
+    picture = models.ImageField("Фото", upload_to="rooms/imgs/")
+    room_image = models.ForeignKey(RoomImage, on_delete=models.CASCADE, null=True)
     is_available = models.BooleanField(default=True)
     category = models.ForeignKey(Category,on_delete=models.SET_NULL,null=True)
     persons = models.CharField("persons",max_length=20,null=True)
@@ -42,9 +45,6 @@ class Rooms(models.Model):
     def __str__(self):
         return f"Room #{self.id}"
 
-class RoomImage(models.Model):
-    room=models.ForeignKey(Rooms, on_delete=models.CASCADE)
-    room_image=models.ImageField(upload_to="media", height_field=None, width_field=None, max_length=None)
 
 
 from django.utils.timezone import now
@@ -81,3 +81,5 @@ class Booking(models.Model):
     def get_booking_price(self):
         r = self.room.price * self.get_days()
         return r 
+    
+    

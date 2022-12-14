@@ -36,3 +36,11 @@ class ContactForm(forms.ModelForm):
         }
 
 
+class StatusForm(forms.ModelForm):
+    class Meta:
+        model = Booking
+        fields = ['status']
+        status = forms.CharField(widget=forms.HiddenInput)
+
+   
+

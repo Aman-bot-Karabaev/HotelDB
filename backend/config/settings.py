@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'backend.apps.accounts',
     'backend.apps.rooms',
     'backend.apps.restaurant',
-    'django_filters',
+    
+    
 ]
 
 MIDDLEWARE = [
@@ -83,7 +84,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'hotel_db',
         'USER': 'postgres',
-        'PASSWORD': 'Amakarabaev29112004',
+        'PASSWORD': 'qwerty123',
         'HOST': '127.0.0.1',
         'PORT': '5432',
     }
@@ -138,10 +139,10 @@ EMAIL_USE_TLS = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 
-STATIC_URL = 'C:/Users/User/Desktop/django_hotel/Hotel/static/'
+STATIC_URL = '/home/sezim/Desktop/django_project/Hotel/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [
-    'C:/Users/User/Desktop/django_hotel/Hotel/static/',
+    '/home/sezim/Desktop/django_project/Hotel/static/',
 ]
  
 
