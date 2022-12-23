@@ -130,3 +130,7 @@ class AboutPage(ListView):
 
 class SuccessView(TemplateView):
     template_name = "success.html"
+
+class SpaView(TemplateView):
+    template_name = "spacenter.html"
+    

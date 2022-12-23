@@ -8,5 +8,6 @@ urlpatterns = [
     path('booking_page/<int:booking_pk>/<int:room_pk>/',EndBookingView.as_view(),name="booking"),
     path('rooms/',RoomsPage.as_view(),name='rooms'),
     path('room_details/<int:pk>/',RoomDetail.as_view(),name='room_detail'),
-    path('success/',SuccessView.as_view(),name='success')
+    path('success/',SuccessView.as_view(),name='success'),
+    path('spa_center/',SpaView.as_view(),name="spa_center")
 ]

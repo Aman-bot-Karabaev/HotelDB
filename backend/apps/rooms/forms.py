@@ -40,7 +40,9 @@ class StatusForm(forms.ModelForm):
     class Meta:
         model = Booking
         fields = ['status']
-        status = forms.CharField(widget=forms.HiddenInput)
+        widgets = {
+            "status": forms.Select(attrs={"class":"form-control"})
+        }
 
    
 

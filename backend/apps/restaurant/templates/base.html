@@ -44,14 +44,9 @@
                 <a href="{% url 'restaurant' %}" class="header__link">Restaurant</a>
             </li>
             <li class="header__item">
-                <a href="#" class="header__link">Spa Center</a>
+                <a href="{% url 'spa_center' %}" class="header__link">Spa Center</a>
             </li>
-            <li class="header__item">
-                <a href="#" class="header__link">Gallery</a>
-            </li>
-            <li class="header__item">
-                <a href="#" class="header__link">Contact</a>
-            </li>
+           
             {% if request.user.is_authenticated %}
             <li class="header__item">
                 <a href="{% url 'profile' user.id" class="header__link">
@@ -110,10 +105,10 @@
                             <a href="{% url 'index' %}" class="footer__link">Home</a>
                         </li>
                         <li class="footer__item">
-                            <a href="" class="footer__link">Rooms & Suites</a>
+                            <a href="{% url 'rooms' %}" class="footer__link">Rooms & Suites</a>
                         </li>
                         <li class="footer__item">
-                            <a href="" class="footer__link">Restaurant</a>
+                            <a href="{% url 'restaurant' %}" class="footer__link">Restaurant</a>
                         </li>
                         <li class="footer__item">
                             <a href="" class="footer__link">Spa & Wellness</a>

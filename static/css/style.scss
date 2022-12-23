@@ -197,6 +197,17 @@ input[type=number]::-webkit-inner-spin-button {
   }
 }
 
+.overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  background-color: rgba(0,0,0,0.5);
+  top: 0;
+  left: 0;
+  z-index: 9999999999999;
+}
+
 ::selection {
   color: #fff;
   background: #aa8453;
@@ -227,3 +238,5 @@ input[type=number]::-webkit-inner-spin-button {
 @import "profile";
 @import "details";
 @import "reservation";
+@import "gallery";
+@import "contact";

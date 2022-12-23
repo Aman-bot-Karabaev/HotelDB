@@ -17,7 +17,7 @@ admin.site.register(Contact)
 class RoomsAdmin(admin.ModelAdmin):
     context = User.objects.all()
 
-
+    
 
 admin.site.register(Rooms)
 

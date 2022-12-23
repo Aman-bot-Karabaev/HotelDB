@@ -1,0 +1,123 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Spa Center</title>
+  <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"
+  />
+  <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+</head>
+<body>
+
+
+<main>
+
+    <a href="#details">
+    
+    </a>
+  </section>
+  <section class="details" id="details">
+    <div class="container">
+      <div class="details__room">
+        <div class="stars">
+          <img src="{% static 'images/all/star.png' %}" alt="Star">
+          <img src="{% static 'images/all/star.png' %}" alt="Star">
+          <img src="{% static 'images/all/star.png' %}" alt="Star">
+          <img src="{% static 'images/all/star.png' %}" alt="Star">
+          <img src="{% static 'images/all/star.png' %}" alt="Star">
+        </div>
+        <p class="subtitle">
+          SO MANY WAYS TO UNWIND
+        </p>
+        <h3 class="title">
+          Spa & Wellness
+        </h3>
+        <p class="desc">
+          Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent volutpat nibh ac sodales sodales. Nunc tincidunt erat sed nisi faucibus, eget sagittis libero imperdiet. Nunc risus magna, imperdiet gravida ultricies in, aliquam a tortor. Vestibulum tristique posuere magna, quis elementum neque luctus non. Aenean sed arcu efficitur, commodo justo ut, accumsan massa. Vivamus ac risus in felis imperdiet mollis id sit amet odio. Vestibulum dignissim finibus diam a commodo. Nulla quis miss dururana egestas semper. In sit amet nunc sed felis lacinia tempus sed quis ipsum.
+        </p>
+        <div class="contact">
+          <img class="contact__img" src="{% static 'images/all/call.png' %}" alt="Call">
+          <div class="contact__text">
+            <p class="desc desc-number">Reservation</p>
+            <a href="tel: 855 100 4444" class="contact__number">855 100 4444</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="relaxation" style="padding: 0 0 120px 0">
+    <div class="container">
+      <div class="relaxation__row">
+        <div class="relaxation__card relaxation__card-text wow fadeInLeft">
+          <p class="subtitle">Experiences</p>
+          <h4 class="relaxation__card-title">Spa Center</h4>
+          <p class="desc">
+            Spa center inilla duiman at elit finibus viverra nec a lacus themo the nesudea seneoice misuscipit non sagie the fermen ziverra tristiue duru the ivite dianne onen nivami acsestion augue artine.
+          </p>
+          <p class="desc">
+            Daily: 7.00 am to 9.00 pm
+          </p>
+        </div>
+        <div class="relaxation__card wow fadeInRight">
+          <a class="relaxation__card-link" href="">
+            <img src="{% static 'images/relaxation/card2.jpg' %}" alt="Spa" class="relaxation__card-img">
+          </a>
+        </div>
+        <div class="relaxation__card wow fadeInLeft">
+          <a class="relaxation__card-link" href="">
+            <img src="{% static 'images/relaxation/card3.jpg' %}" alt="Fitness" class="relaxation__card-img">
+          </a>
+        </div>
+        <div class="relaxation__card relaxation__card-text wow fadeInRight">
+          <p class="subtitle">Modern</p>
+          <h4 class="relaxation__card-title">Fitness Center</h4>
+          <p class="desc">
+            Restaurant inilla duiman at elit finibus viverra nec a lacus themo the nesudea seneoice misuscipit non sagie the fermen ziverra tristiue duru the ivite dianne onen nivami acsestion augue artine.
+          </p>
+          <p class="desc">
+            Daily: 6.00 am to 9.00 pm
+          </p>
+        </div>
+        <div class="relaxation__card relaxation__card-text wow fadeInLeft">
+          <p class="subtitle">Experiences</p>
+          <h4 class="relaxation__card-title">The Health Club & Pool</h4>
+          <p class="desc">
+            The health club & pool at elit finibus viverra nec a lacus themo the nesudea seneoice misuscipit non sagie the fermen ziverra tristiue duru the ivite dianne onen nivami acsestion augue artine.
+          </p>
+          <p class="desc">
+            Daily: 10.00 am to 7.00 pm
+          </p>
+        </div>
+        <div class="relaxation__card wow fadeInRight">
+          <a class="relaxation__card-link" href="">
+            <img src="{% static 'images/relaxation/card4.jpg' %}" alt="Club" class="relaxation__card-img">
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+<script src="{% static 'js/wow.min.js' %}"></script>
+<script>
+  new WOW().init();
+</script>
+<script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>
+{% endblock %}

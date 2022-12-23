@@ -93,21 +93,17 @@ class ManagerView(FormView):
     form_class = StatusForm
     template_name = 'manager_page.html'
     model = Booking
+    success_url = reverse_lazy('manager')
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        all_bookings = Booking.objects.all()
-        context['all_bookings'] = all_bookings
+        context['all_bookings'] = Booking.objects.all()
         return context
-    def status(request):
-        context ={}
-        form = StatusForm()
-        context['form']= form
-        if request.GET:
-            temp = request.GET['status']
-            print(temp)
-        return context
+
+
     def form_valid(self, form):
         if form.is_valid():
+            print(form.cleaned_data)
             form.save()
      
         return super().form_valid(form)
@@ -121,3 +117,16 @@ def restaurant_manager(request):
 class InvalidUser(TemplateView):
     template_name = "invalid_user.html"
 
+
+
+def change_booking_status(request, booking_pk):
+    pass
+
+
+def delete_booking(request, booking_id):
+    Booking.objects.get(id=booking_id).delete()
+    return redirect(reverse_lazy('manager'))
+
+def delete_rest_booking(request, booking_id):
+    RestaurantBook.objects.get(id=booking_id).delete()
+    return redirect(reverse_lazy('restaurant_manager'))
